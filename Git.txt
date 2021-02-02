@@ -1,0 +1,48 @@
+-----------------------CÁC LỆNH GIT THƯỜNG DÙNG----------------
+
+--> Khi chưa có repo trên local thì tạo (nhớ rằng chỉ có duy nhất 1 folder ở local chứa repo tương ứng với remo trên server )
+- git init // tạo repo trên local
+- git add * // them file vao repo
+- git commit -m"thay doi" // lưu thay đổi vào repo trong máy
+- git remote add origin https://github.com/THAO1999/example.git // 
+- git push -u origin master // push lên server
+- git status // kiểm tra trang thái
+- git log // xem những commit
+- git log -3 // xem 2 commit mới nhất
+- git pull // pull từ server về 
+Quy tắc phải pull về trước khi commit // tránh conflict
+
+// khắc phục conflict
+b1: git pull //pull từ server về
+b2: chọn xem nên lấy code của mình hay lấy code của thằng kia
+b3: xoa code 1 trong hai hoặc giữ cả 2 => lưu lại
+b4: git add * => git commit -m" " => git push
+
+// mới đầu chưa có trong dự án thì
+b1: lấy link git
+b2: git clone http:....
+
+// TẠO NHÁNH
+-git branch thao// tạo nhánh thao
+- git branch    // kiểm tra xem có bao nhiêu branch
+hoặc git checkout -b thao// // tự tạo tên branh và chuyển qua nhánh thao luôn
+git checkout thao// // chuyển qua nhánh thao
+// push lên branch 
+ git push --set-upstream origin thao   //  taoh branch thao trên server => push lên
+
+// MERGE branch
+b1: git merge thao
+b2: git commit -m"merge branch thao"
+b3: git push 
+
+// tạo pull request
+b1: click "Compare & pull request" 
+b2: tiêu đề:chức năng gì
+    leave a commit: giải thích tại sao làm chức năng đấy
+b3: xem ai bình luận không
+b4:merge
+
+
+ 
+
+

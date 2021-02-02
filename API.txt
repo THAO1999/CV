@@ -1,0 +1,100 @@
+API:là những url hoặc function giúp app có thể giao tiếp được với nhau(sử dụng được những chức năng của nhau hoặc là trao đổi thông tin với nhau)
+API     -Web API:được sử dụng trong các hệ thống web
+	-API on OS:các chức năng trên window đều sử dụng API
+	-API of Libraries and framework: có thể là các function
+ 
+Web API - REST
+	- SOAT :SOAP API lại hay được trong những hệ thống lớn, đã chạy lâu năm.
+	-XML-RPC
+	-JSON-RPC
+REST:là những ràng buộc, những quy tắc=> nếu áp dụng đầy đủ những quy tắc này thì ta có một hệ thống REST
+ Ràng buộc của REST: 
+	- Client-Server:client gửi request lên server, server trả lại respond 
+	- Stateless: server k lưu thông tin request mà client gưi tới
+	- Cacheable: lưu trữ lại thông tin respond vào bộ nhớ đệm trên thiết bị
+	- Uniform interface: thiết kế url một cách thống nhất
+	- Layer system : dữ liệu trên nhiều server
+	- Code on command : dạng xml,json
+
+=> Hệ thống Rest
+REST:
+ 	-Nó sử dụng phương thức HTTP đơn giản để tạo cho giao tiếp giữa các máy.
+	-REST gửi một yêu cầu HTTP như GET, POST, DELETE, vv đến một URL để xử lý dữ liệu.
+
+RESTful API     Tiêu chuẩn dùng trong việc thiết kế các API
+		Quy định cách sử dụng các HTTP method (như GET, POST, PUT, DELETE…) hoặc status code trả về từ các máy.
+Tiêu chuẩn HTTP method trong REST
+	GET (SELECT): “hiển thị” một hoặc nhiều item
+	POST (CREATE): Tạo mới
+	PUT (UPDATE): Cập nhật toàn phần
+	PATCH (UPDATE: Cập nhật một phần
+	DELETE (DELETE): Xoá
+Tiêu chuẩn Status code trong REST
+Khi chúng ta request một API nào đó thường thì sẽ có vài status code để nhận biết sau:
+-Status code 2xx (thành công)
+   =>Khi request thành công mà không gặp mất kì lỗi nào.
+	200 OK – Trả về thành công cho những phương thức GET, PUT, PATCH hoặc DELETE.
+	201 Created – Tạo mới một dữ liệu
+	204 No Content – Không có dữ liệu nào được trả về
+
+-Status code 3xx (điều hướng)
+  =>Server phải thực hiện hành động bổ sung để hoàn thành request.
+
+	301 – Permanent Redirect – chuyển hướng hoàn toàn
+	302 – Temporarily Redirect – chuyển hướng tạm thời
+	304 Not Modified – Trả về từ cache
+
+-Status code 4xx (lỗi người dùng)
+  =>Lỗi này thường về phía người dùng (người sử dụng browser hay khách viếng thăm website).
+
+	400 Bad Request – Request không hợp lệ
+	401 Unauthorized – Request không có bảo mật
+	403 Forbidden – Không được phép truy cập
+	404 Not Found – Không tìm thấy bất kì thông tin nào
+	405 Method Not Allowed – Phương thức (GET, POST, PUT, PATCH, DELETE) không cho phép
+	415 Unsupported Media Type – Không hỗ trợ kiểu Resource này.
+	422 Unprocessable Entity – Dữ liệu không được xác thực
+	429 Too Many Requests – Request bị từ chối do bị giới hạn
+
+-Status code 5xx (lỗi server)
+Lỗi này. thuộc về phía máy chủ, có thể đến từ code, tràn bộ nhớ, hết dung lượng, DDOS,…
+
+	500 – Internal Server Error – Hư
+	501 – Not implement – Chưa code
+	502 – Bad Gateway – đa số là do lỗi server (Nginx, Apache, Lite Speed,…)
+	503 – Service Unavailable – Server tạm thời không xử lý được/ kịp
+https://stream-hub.com/web-service/
+https://viblo.asia/p/tim-hieu-ban-dau-ve-web-service-jdWrvwQ5Mw38
+
+
+Quy tắc thiết kế API
+	1. Không trả lại plain text:
+		 Content-Type:application/json 
+	2. Không sử dụng verbs (động từ) trong URIs:
+		GET: /restaurants/:id/foods/ thay vì GET: /restaurants/:id/listFood/
+	3. Sử dụng danh từ số nhiều cho tài nguyên:
+		GET: /restaurants/:id/ thay vì GET: /restaurant/:id/
+	4. Trả về chi tiết lỗi trong response body:
+		{
+ 			 "error": "Invalid payoad.",
+  			 "detail": {
+  				  "surname": "This field is required."
+ 					 }
+						}
+	5. Chú ý cách sử dụng Status codes:
+		401 - Unauthorized
+		400 - Bad Request
+		404 - Not Found
+		403 - Forbidden Error
+		500 - Internal Error
+		503 - Service Unavailable
+  	7. 401 vs. 403:
+		Người dùng chưa cung cấp thông tin xác thực hoặc chúng không hợp lệ. Lúc đó bạn sẽ sử dụng 401 - Unauthorized.
+		Người dùng đã thực hiện xác thực thành công, nhưng họ không được phép truy cập vào tài nguyên đó. Lúc này bạn sẽ sử dụng 403 - Forbidden.
+	9. PUT vs PATCH:
+		Một PUT request sẽ thay đổi toàn bộ nội dung của một tài nguyên. 
+		Trong khi một PATCH request được sử dụng trong trường hợp thay đổi một phần nội dung của một tài nguyên.
+
+
+Authorization: Là thông tin để xác thực tài khoản, nó chính là token_type và access_token.
+X-Requested-With: Có giá trị là XMLHttpRequest. Dựa vào thông này Laravel sẽ biết được là bạn đang gửi một XMLHttpRequest và có cách response phù hợp hơn.

@@ -1,0 +1,43 @@
+--php artisan serve //http://localhost:8000:=>http://localhost/laravel57/public/
+// vào thư mục public vì trong Laravel các yêu cầu đều được gửi đến index.php nằm trong thư mục public của dự án. 
+-- Thiết lập tên miền ảo
+php artisan list make // list command
+
+-- php artisan make:middleware CheckAge // create middleware
+--php artisan make:controller ShowProfile --invokable // create controller
+--php artisan make:controller PhotoController --resource // create controller resource
+
+// cấu hình csdl trong .env
+
+php artisan make:migration create_users_table // create migration
+
+php artisan make:migration create_users_table --create=users  // create new table
+
+php artisan make:migration add_votes_to_users_table --table=users // edit table
+
+php artisan migrate  // run 
+
+php artisan migrate --force // bỏ qua lời nhắc
+
+php artisan migrate:rollback  // quay trở lại lần mới nhất
+
+php artisan migrate:rollback --step=5 // khôi phục 5 lần di chuyển cuối cùng
+
+php artisan migrate:reset  //  khôi phục all
+
+php artisan migrate:refresh // khôi phục all và tạo lại từ đầu
+
+php artisan migrate:refresh --step=5 // khôi phục 5 thằng cuối và tạo lại 5 thằng cuối
+
+
+Schema::table('posts', function (Blueprint $table) {
+    $table->unsignedInteger('user_id');
+
+    $table->foreign('user_id')->references('id')->on('users'); // khoa ngoại user_id tham chiếu đến cột id(khoa chính) trong bảng user
+});
+// 1 user có nhiều bài đăng, 1 bài đăng chỉ thuôc về user duy nhất=> quan hệ 1-n
+user: id
+post: user_id
+
+
+

@@ -1,0 +1,6 @@
+Làm việc với request get
+1.Thiết lập request HTTP của bạn là GET
+2.Trong trường URL yêu cầu, nhập vào link
+3.Kích nút Send
+4.Bạn sẽ nhìn thấy message là 200 ok
+=>Sẽ hiển thị kết quả trong phần Body của bạn.
