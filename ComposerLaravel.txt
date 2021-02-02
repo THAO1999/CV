@@ -1,8 +1,0 @@
---php artisan serve //http://localhost:8000:=>http://localhost/laravel57/public/
-// vào thư mục public vì trong Laravel các yêu cầu đều được gửi đến index.php nằm trong thư mục public của dự án. 
--- Thiết lập tên miền ảo
-php artisan list make // list command
-
--- php artisan make:middleware CheckAge // create middleware
---php artisan make:controller ShowProfile --invokable // create controller
---php artisan make:controller PhotoController --resource // create controller resource
